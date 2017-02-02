@@ -1,0 +1,22 @@
+<ion-view view-title="Article">
+	<ion-content>
+		<div class="card">
+			<div class="item">
+				<h2>{{ article.name }}</h2>
+			</div>
+			<div class="item item-image">
+				<img ng-src="{{article.imageURL}}">
+			</div>
+			<div class="item">
+				<p>{{ article.description }}</p>
+				<p><span>Type :</span> {{ article.type }}</p>
+				<p><span>Coloris :</span> {{ article.color }}</p>
+				<p><span>Matière :</span> {{ article.material }}</p>
+				<p><span>Référence :</span> {{ article.reference }}</p>
+				<button ng-click="addToCart()" class="button button-positive button-block">Ajouter au panier</button>
+			</div>
+		</div>
+
+	</div>
+</ion-content>
+</ion-view>

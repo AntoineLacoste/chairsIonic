@@ -1,0 +1,17 @@
+/* Empty. Add your own CSS if you like */
+.item p>span{
+	font-weight: bold;
+}
+
+.item p{
+	text-align: justify;
+}
+
+.item, .item h1, .item h2, .item h3, .item h4, .item h5, .item h6, .item p, .item-content, .item-content h1, .item-content h2, .item-content h3, .item-content h4, .item-content h5, .item-content h6, .item-content p{
+	overflow: visible;
+	white-space: initial;
+}
+
+.item.item-image{
+	max-height: 400px;
+}

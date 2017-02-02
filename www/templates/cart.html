@@ -1,0 +1,18 @@
+<ion-view view-title="Cart">
+	<ion-content>
+		<div class="list">
+			<div class="item item-thumbnail-left" ng-repeat="article in cart track by $index">
+				<img ng-src="{{article.imageURL}}">
+				<h2>{{article.name}}</h2>
+				<p>Quantité : {{article.qty}}</p>
+				<p>Prix unitaire : {{article.price}}€</p>
+				<button ng-click="deleteItem(article.reference)" class="button button-icon icon ion-trash-b"></button>
+			</div>
+		</div>
+		<div class="card">
+			<div class="item item-text-wrap">
+				<p></p>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>
