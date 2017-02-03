@@ -15,3 +15,28 @@
 .item.item-image{
 	max-height: 400px;
 }
+
+.totalPrice{
+	font-size: 20px;
+	float: right;
+}
+
+.text-center p{
+	text-align: center;
+}
+
+.payment-info .input-label{
+	width: 100%;
+}
+
+.itemsInCart{
+	font-style: italic;
+}
+
+.qty-item{
+	display: inline-block;
+}
+
+i.switchQty{
+	font-size: 20px;
+}

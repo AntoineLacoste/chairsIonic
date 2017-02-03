@@ -45,6 +45,15 @@ angular.module('chairapp.localstorage', [])
 		return defer.promise;
 	};
 
+	this.getTotalOfOrder = function(){
+		var items = JSON.parse(localStorage.getItem('cart'));
+		var total = 0;
+		angular.forEach(items, function(item){
+			total += item.price * item.qty;
+		});
+		return total;
+	}
+
 	this.getNumberOfItems = function(){
 		var items = JSON.parse(localStorage.getItem('cart'));
 		var numberOfItems = 0;

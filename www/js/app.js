@@ -49,5 +49,14 @@ angular.module('chairapp', ['ionic', 'chairapp.controllers', 'chairapp.localstor
             }
         }
     })
+    .state('app.payment', {
+        url: '/payment',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/payment.html',
+                controller: 'PaymentCtrl'
+            }
+        }
+    })
     $urlRouterProvider.otherwise('/app/list');
 });

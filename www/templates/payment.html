@@ -1,0 +1,26 @@
+<ion-view view-title="Paiement">
+	<ion-content>
+		<div class="list">
+			<div class="item item-text-wrap">
+				<div>
+					<h2>Informations de paiement</h2>
+					<div class="list payment-info">
+						<label class="item item-input">
+							<input type="text" name="titulary" ng-model="form.titulary" placeholder="Titulaire de la carte" required>
+						</label>
+						<label class="item item-input">
+							<input type="text" name="number" ng-model="form.number" placeholder="Numéro de la carte" required>
+						</label>
+						<label class="item item-input">
+							<input type="text" name="expiration" ng-model="form.expiration" placeholder="Date d'expiration (jj/mm/aaaa)" required>
+						</label>
+						<label class="item item-input">
+							<input type="text" name="cryptogram" ng-model="form.cryptogram" placeholder="Cryptogramme visuel" required>
+						</label>
+						<button ng-click="pay()" class="button button-positive button-block">Payer</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>
