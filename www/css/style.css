@@ -40,3 +40,12 @@
 i.switchQty{
 	font-size: 20px;
 }
+
+.viewTitle{
+	display: inline-block;
+}
+
+.logo-img{
+	float: right;
+	margin-top: 5px;
+}

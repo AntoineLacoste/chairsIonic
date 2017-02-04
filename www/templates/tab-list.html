@@ -1,0 +1,12 @@
+<ion-view title="{{viewTitle}}">
+	<ion-content>
+		<search></search>
+		<div class="list">
+			<a ng-repeat="item in itemsToDisplay track by $index" class="item item-thumbnail-left" href="#/tab/item/{{item.reference}}">
+				<img ng-src="{{item.imageURL}}">
+				<h2>{{item.name}}</h2>
+				<p>{{item.price}}€</p>
+			</a>
+		</div>
+	</ion-content>
+</ion-view>

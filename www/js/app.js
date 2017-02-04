@@ -1,4 +1,4 @@
-angular.module('chairapp', ['ionic', 'chairapp.controllers', 'chairapp.localstorage'])
+angular.module('chairapp', ['ionic', 'chairapp.controllers', 'chairapp.localstorage', 'chairapp.search'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -16,47 +16,46 @@ angular.module('chairapp', ['ionic', 'chairapp.controllers', 'chairapp.localstor
 })
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
-    .state('app', {
-        url: '/app',
+    .state('tab', {
+        url: '/tab',
         abstract: true,
-        templateUrl: 'templates/menu.html',
-        controller: 'AppCtrl'
+        templateUrl: 'templates/tabs.html'
     })
-    .state('app.list', {
+    .state('tab.list', {
         url: '/list',
         views: {
-            'menuContent': {
-                templateUrl: 'templates/list.html',
+            'tab-list': {
+                templateUrl: 'templates/tab-list.html',
                 controller: 'ListCtrl',
             }
         }
     })
-    .state('app.single', {
+    .state('tab.single', {
         url: '/item/:itemId',
         views: {
-            'menuContent': {
-                templateUrl: 'templates/single.html',
+            'tab-list': {
+                templateUrl: 'templates/tab-list-single.html',
                 controller: 'SingleCtrl'
             }
         }
     })
-    .state('app.cart', {
+    .state('tab.cart', {
         url: '/cart',
         views: {
-            'menuContent': {
-                templateUrl: 'templates/cart.html',
+            'tab-cart': {
+                templateUrl: 'templates/tab-cart.html',
                 controller: 'CartCtrl'
             }
         }
     })
-    .state('app.payment', {
+    .state('tab.payment', {
         url: '/payment',
         views: {
-            'menuContent': {
-                templateUrl: 'templates/payment.html',
+            'tab-cart': {
+                templateUrl: 'templates/tab-cart-payment.html',
                 controller: 'PaymentCtrl'
             }
         }
     })
-    $urlRouterProvider.otherwise('/app/list');
+    $urlRouterProvider.otherwise('/tab/list');
 });

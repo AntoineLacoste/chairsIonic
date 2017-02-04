@@ -1,7 +1,5 @@
 angular.module('chairapp.controllers', [])
 
-.controller('AppCtrl', function() {
-})
 .controller('LoginCtrl', function($scope, $ionicModal, $timeout) {
     // Login 
     $scope.loginData = {};
@@ -24,6 +22,7 @@ angular.module('chairapp.controllers', [])
     };
 })
 .controller('ListCtrl', function($scope, $rootScope, $http, localStorage, $state) {
+    $scope.viewTitle = '<img class="logo-img" src="img/chaise-logo.png"><p class="viewTitle">Articles</p>'; 
     localStorage.init();
     var cart = 'cart';
     $scope.itemsToDisplay = [];
@@ -39,6 +38,7 @@ angular.module('chairapp.controllers', [])
     };
 })
 .controller('CartCtrl', function($scope, $stateParams, $http, localStorage, $rootScope, $state) {
+    $scope.viewTitle = '<img class="logo-img" src="img/chaise-logo.png"><p class="viewTitle">Panier</p>'; 
     $scope.$on('$ionicView.beforeEnter', function(){
         $scope.cart = localStorage.get('cart');
         $scope.totalPrice = localStorage.getTotalOfOrder();
@@ -63,10 +63,11 @@ angular.module('chairapp.controllers', [])
     };
 
     $scope.goToPayment = function(){
-        $state.go('app.payment');
+        $state.go('tab.payment');
     }
 })
 .controller('SingleCtrl', function($scope, $stateParams, $http, localStorage, $rootScope,  $ionicPopup) {
+    $scope.viewTitle = '<img class="logo-img" src="img/chaise-logo.png"><p class="viewTitle">Article</p>'; 
     $http.get( $rootScope.apiURL + '/chairs/' + $stateParams.itemId).then(function (response) {
         $scope.article = response.data.data[0];
         console.log(response);
@@ -83,7 +84,8 @@ angular.module('chairapp.controllers', [])
         });
     };
 })
-.controller('PaymentCtrl', function($scope, $http, localStorage, $rootScope, $ionicPopup) {
+.controller('PaymentCtrl', function($scope, $http, localStorage, $rootScope, $ionicPopup, $state, $stateParams) {
+    $scope.viewTitle = '<img class="logo-img" src="img/chaise-logo.png"><p class="viewTitle">Paiement</p>'; 
     $scope.form = {
         titulary: "JOJO",
         number: 2343435151311254,
@@ -107,6 +109,8 @@ angular.module('chairapp.controllers', [])
             $scope.validOrder = res.data.valid;
             if( res.data.valid ){
                 showAlert('Commande validée', 'Votre commande a été enregistrée avec succès');
+                localStorage.reset();
+                $state.go('tab.list');
             }
             else{
                 showAlert('Commande échouée', res.data.message);

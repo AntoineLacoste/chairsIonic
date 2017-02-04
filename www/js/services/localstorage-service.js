@@ -15,6 +15,11 @@ angular.module('chairapp.localstorage', [])
 	this.get = function(){
 		return JSON.parse(localStorage.getItem('cart'));
 	};
+	
+	this.reset = function(){
+		var LS = [];
+		localStorage.setItem('cart', JSON.stringify(LS));
+	}
 
 	this.set = function(item){
 		var defer = $q.defer();
