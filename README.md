@@ -10,6 +10,9 @@ Mobile application for the project at Ynov in WebFullStack.
     git clone https://github.com/AntoineLacoste/chairsIonic
     npm install
     npm install -g ionic (if you don't have ionic)
+
+#Dependencies
+     The web server chairsAPI located at https://github.com/AntoineLacoste/chairsAPI should be running
     
 #Serve
     ionic serve (if you want to display the application in a browser)
