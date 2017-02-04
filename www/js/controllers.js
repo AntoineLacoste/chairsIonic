@@ -22,13 +22,14 @@ angular.module('chairapp.controllers', [])
     };
 })
 .controller('ListCtrl', function($scope, $rootScope, $http, localStorage, $state) {
+    // Add the logo on the title
     $scope.viewTitle = '<img class="logo-img" src="img/chaise-logo.png"><p class="viewTitle">Articles</p>'; 
     localStorage.init();
     var cart = 'cart';
     $scope.itemsToDisplay = [];
     $http.get( $rootScope.apiURL + '/chairs' ).then( function(res){
         $scope.itemsToDisplay = res.data.data;
-            // Stockage de tous les items pour la recherche
+            // Stock all items form search
             $rootScope.items = res.data.data;
         }, function(error){
             console.log(error);
@@ -47,6 +48,7 @@ angular.module('chairapp.controllers', [])
         console.log('Erreur : ' + err);
     });
 
+    // Remove item from cart and refresh some var
     $scope.deleteItem = function(reference){
         localStorage.remove(reference);
         $scope.cart = localStorage.get('cart');
@@ -54,8 +56,8 @@ angular.module('chairapp.controllers', [])
         $scope.totalPrice = localStorage.getTotalOfOrder();
     };
 
+    // Refresh item from cart
     $scope.refreshCart = function(reference, qty, index){
-        console.log('toto');
         localStorage.refresh(reference, qty);
         $scope.cart[index].qty = qty;
         $scope.numberOfItems = localStorage.getNumberOfItems();
@@ -86,13 +88,16 @@ angular.module('chairapp.controllers', [])
 })
 .controller('PaymentCtrl', function($scope, $http, localStorage, $rootScope, $ionicPopup, $state, $stateParams) {
     $scope.viewTitle = '<img class="logo-img" src="img/chaise-logo.png"><p class="viewTitle">Paiement</p>'; 
-    $scope.form = {
-        titulary: "JOJO",
-        number: 2343435151311254,
-        expiration: "16/05/2017",
-        cryptogram: '456'
-    };
 
+    // Trial Run 
+    // $scope.form = {
+    //     titulary: "JOJO",
+    //     number: 2343435151311254,
+    //     expiration: "16/05/2017",
+    //     cryptogram: '456'
+    // };
+
+    // Popup that will be displayed when payment
     var showAlert = function(title, template) {
         $ionicPopup.alert({
             title: title,

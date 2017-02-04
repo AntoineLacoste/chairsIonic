@@ -45,7 +45,6 @@ angular.module('chairapp.localstorage', [])
 			currentCart.push(itemToAdd);
 		}
 		localStorage.setItem('cart', JSON.stringify(currentCart));
-		console.log('--- set LocalStorage Done ---');
 		defer.resolve();
 		return defer.promise;
 	};
@@ -80,7 +79,6 @@ angular.module('chairapp.localstorage', [])
 				}
 			}
 		}
-		console.log('--- Remove LocalStorage Done ---');
 		defer.resolve();
 		return defer.promise;
 	}
@@ -97,7 +95,6 @@ angular.module('chairapp.localstorage', [])
 				}
 			}
 		}
-		console.log('--- Refresh LocalStorage Done ---');
 		defer.resolve();
 		return defer.promise;
 	}
